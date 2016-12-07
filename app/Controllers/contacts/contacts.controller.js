@@ -55,25 +55,13 @@
 
             $scope.editMe = function () {
                 var refe = ref.child($scope.id);
-                // var id = $scope.id;
-                // var record = $scope.contacts.$getRecord(id);
-                // record.name 					= $scope.data.name;
-                // record.email 					= $scope.data.email;
-                // record.company 					= $scope.data.company;
-                // record.phone.work 				= $scope.data.phone.work_phone;
-                // record.phone.home 				= $scope.data.phone.home_phone;
-                // record.phone.mobile 			= $scope.data.phone.mobile_phone;
-                // record.address.street_address 	= $scope.data.address.street_address;
-                // record.address.city 			= $scope.data.address.city;
-                // record.address.state 			= $scope.data.address.state;
-                // record.address.zipcode 			= $scope.data.address.zipcode;
-                // console.log(record);
                 refe.update($scope.data);
                 $scope.editFormShow = false;
+                $scope.msg = "Contact Updated ."
             };
 
             $scope.removeContact = function (contact) {
-
+                ref.child(contact.$id).remove();
             };
 
             $scope.submitMe = function () {
